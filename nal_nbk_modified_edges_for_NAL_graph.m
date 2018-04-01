@@ -1,12 +1,13 @@
-function modified_edges_for_NAL =  nal_nbk_modified_edges_for_NAL_graph(cktnetlist)
+function all_modified_edges_for_NAL =  nal_nbk_modified_edges_for_NAL_graph(cktnetlist)
 % --------------------------------------------------------------------------------
-% syntax :- modified_edges_for_NAL = nal_nbk_modified_edges_for_NAL_graph(cktnetlist) 
+% syntax : all_modified_edges_for_NAL = nal_nbk_modified_edges_for_NAL_graph(cktnetlist) 
 %
 % This function will return modified_edges_for_NAL which is used to make incedence 
 % matrix for a graph associated with circuit NAL i.e. Gx(AUL) 
 % --------------------------------------------------------------------------------
 
 % --------------------------- written on : Mar 13, 2018 --------------------------
+
 
     L_Branch = nal_nbk_L_branch_hybrid_analysis(cktnetlist);
     K_Branch = nal_nbk_K_branch_hybrid_analysis(cktnetlist);
@@ -40,11 +41,14 @@ function modified_edges_for_NAL =  nal_nbk_modified_edges_for_NAL_graph(cktnetli
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % this below line code will aggregate all the super_node to get Reduced incedence matrix 
     % for NAL graph
+
+
     super_node = cell2mat(super_node);
     common_nodes_index = find(common_nodes);
     for k = 1:length(common_nodes_index)
         if(~isempty(find(common_nodes_index(k) == super_node)))
             aggregate_super_node = common_nodes_index(k);
+            % aggregate_super_node represent all the super_node 
             break;
         end 
     end
@@ -72,19 +76,18 @@ function modified_edges_for_NAL =  nal_nbk_modified_edges_for_NAL_graph(cktnetli
         if (~isempty(find(node2 == super_node)))
             node2 = aggregate_super_node;
         end
-        all_modified_edges_for_NAL = [all_modified_edges_for_NAL ; node1 node2];
+        all_modified_edges_for_NAL = sparse([all_modified_edges_for_NAL ; node1 node2]);
 
     end
-
-    modified_edges_for_NAL = []; 
-    A_and_B_part = nal_nbk_partition(cktnetlist);
-    for i = 1:length(A_and_B_part)
-        if(A_and_B_part(i) ~= 0)
-            modified_edges_for_NAL = [modified_edges_for_NAL;all_modified_edges_for_NAL(i,:)];
-        end
-    end
-   
-    for i = 1:length(L_Branch)
-        modified_edges_for_NAL = [modified_edges_for_NAL;all_modified_edges_for_NAL(L_Branch(i),:)];
-    end
+%    modified_edges_for_NAL = []; 
+%    A_and_B_part = nal_nbk_partition(cktnetlist);
+%    for i = 1:length(A_and_B_part)
+%        if(A_and_B_part(i) ~= 0)
+%            modified_edges_for_NAL = [modified_edges_for_NAL;all_modified_edges_for_NAL(i,:)];
+%        end
+%    end
+%   
+%    for i = 1:length(L_Branch)
+%        modified_edges_for_NAL = [modified_edges_for_NAL;all_modified_edges_for_NAL(L_Branch(i),:)];
+%    end
 end
