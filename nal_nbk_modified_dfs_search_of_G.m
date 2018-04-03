@@ -51,7 +51,7 @@ function nal_nbk_dfs_search(nodeId)
         if ( isempty(dfs_nodes_of_B))
             dfs_nodes_of_B = [dfs_nodes_of_B,nodeId];
         elseif(nodeId ~= dfs_nodes_of_B(end))
-            dfs_nodes_of_B = [dfs_nodes_of_B,nodeId];
+%            dfs_nodes_of_B = [dfs_nodes_of_B,nodeId];
         end
     end
     adjEdgeIdsOfCurrentNode = g1_of_B{nodeId};

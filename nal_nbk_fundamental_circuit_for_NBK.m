@@ -8,11 +8,15 @@ function [fundamental_circuit_for_NBK] =  nal_nbk_fundamental_circuit_for_NBK(ck
 % --------------------------------------------------------------------------------
 
 % --------------------------- written on : Mar 20, 2018 --------------------------
+% This code is not able to get fundamental ciruit for nal_nbk_FPGA_ckt_01 in GNU-
+% Octave. Hence it is modified to get fundamental_circuit_for_NBK in Octave.
+% ---------------------------- Modified on : Apr 03, 2018 ------------------------
+% 
    global edges_for_NBK;
+   global fundamental_circuit_for_NBK;
 
    N = length (cktnetlist.nodenames) + 1;
    [edgeId_for_NBK,tree_brach_for_NBK, link_branch_for_NBK] = nal_nbk_edge_identity_of_NBK(cktnetlist);
-   loop_matrix = zeros(length(link_branch_for_NBK), length(edgeId_for_NBK));
    fundamental_circuit_for_NBK = cell(length(link_branch_for_NBK),1);
    for i = 1:length(link_branch_for_NBK)
        fundamental_circuit_edgeId = [];
@@ -35,15 +39,17 @@ function [fundamental_circuit_for_NBK] =  nal_nbk_fundamental_circuit_for_NBK(ck
        g1_of_NBK{node2} = [g1_of_NBK{node2}, link_branch_for_NBK(i)];
 
        start_node = str2num(cell2mat(edges_for_NBK(link_branch_for_NBK(i))));
-       fundamental_circuit_for_NBK{i} = dfs_search_NBK(start_node, link_branch_for_NBK(i), node_visited,start_node,start_node, g1_of_NBK,fundamental_circuit_edgeId);
+       dfs_search_NBK(i, start_node, link_branch_for_NBK(i), node_visited,start_node,start_node, g1_of_NBK,fundamental_circuit_edgeId);
    end
 
 end
 
-function my_output =  dfs_search_NBK(node_list, link_branch, node_visited, nodeId, initial_and_final_node, g1_of_NBK,fundamental_circuit_edgeId)
+function  dfs_search_NBK(index, node_list, link_branch, node_visited, nodeId, initial_and_final_node, g1_of_NBK,fundamental_circuit_edgeId)
     
     global edges_for_NBK;
+    global fundamental_circuit_for_NBK;
     global my_output;
+    
     temp_cell =  [];
 
     if (~isempty(g1_of_NBK{nodeId}))
@@ -100,7 +106,8 @@ function my_output =  dfs_search_NBK(node_list, link_branch, node_visited, nodeI
             continue 
         end
         
-        dfs_search_NBK(node_list, link_branch,node_visited, otherNode, initial_and_final_node, g1_of_NBK,fundamental_circuit_edgeId);
+        dfs_search_NBK(index, node_list, link_branch,node_visited, otherNode, initial_and_final_node, g1_of_NBK,fundamental_circuit_edgeId);
     end
-    return;
+    fundamental_circuit_for_NBK{index} = my_output;
+    %return;
 end

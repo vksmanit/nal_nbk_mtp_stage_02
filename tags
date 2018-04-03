@@ -8,12 +8,12 @@ ckt_node_connection_info	ckt_node_connection_info.m	/^function nodeInfo = ckt_no
 dfs	bfs_in_graph.m	/^function dfs(n)$/;"	f
 dfs_search_NBK	my_test_01.m	/^function a = dfs_search_NBK(node_visited, nodeId, initial_and_final_node, g1_of_NBK,fundamental_circuit_edgeId)$/;"	f
 dfs_search_NBK	nal_nbk_fundamental_circuit_for_NBK.m	/^function my_output =  dfs_search_NBK(node_list, link_branch, node_visited, nodeId, initial_and_final_node, g1_of_NBK,fundamental_circuit_edgeId)$/;"	f
-dfs_search_NBK	nal_nbk_test_03.m	/^function my_output =  dfs_search_NBK(node_list, link_branch, node_visited, nodeId, initial_and_final_node, g1_of_NBK,fundamental_circuit_edgeId)$/;"	f
 dfs_search_NBK	nal_nbk_test_cache.m	/^function fundamental_circuit_edgeId = dfs_search_NBK(node_visited,nodeId,initial_and_final_node,g1_of_NBK)$/;"	f
 find_cell_of_coloops	nal_nbk_K_branch_hybrid_analysis_nondisconnected.m	/^function modified_g1_of_tree = find_cell_of_coloops(cktnetlist)$/;"	f
 graph_info_ckt_01	graph_info_ckt_01.m	/^function cktnetlist = graph_info_ckt_01()$/;"	f
 nal_nbk_A_and_B_common_nodes	nal_nbk_A_and_B_common_nodes.m	/^function common_nodes =  nal_nbk_A_and_B_common_nodes(cktnetlist)$/;"	f
 nal_nbk_FPGA_ckt_01	nal_nbk_FPGA_ckt_01.m	/^function cktnetlist = nal_nbk_FPGA_ckt_01()$/;"	f
+nal_nbk_FPGA_ckt_02	nal_nbk_FPGA_ckt_02.m	/^function cktnetlist = nal_nbk_FPGA_ckt_02()$/;"	f
 nal_nbk_K_branch_hybrid_analysis	nal_nbk_K_branch_hybrid_analysis.m	/^function K_branch = nal_nbk_K_branch_hybrid_analysis(cktnetlist)$/;"	f
 nal_nbk_K_branch_hybrid_analysis_nondisconnected	nal_nbk_K_branch_hybrid_analysis_nondisconnected.m	/^function coloops = nal_nbk_K_branch_hybrid_analysis_nondisconnected(cktnetlist)$/;"	f
 nal_nbk_L_branch_hybrid_analysis	nal_nbk_L_branch_hybrid_analysis.m	/^function L_branch = nal_nbk_L_branch_hybrid_analysis(cktnetlist)$/;"	f
@@ -38,16 +38,16 @@ nal_nbk_edge_identity_of_NBK	nal_nbk_edge_identity_of_NBK.m	/^function  [edgeId_
 nal_nbk_fundamental_circuit_for_NBK	nal_nbk_fundamental_circuit_for_NBK.m	/^function [fundamental_circuit_for_NBK] =  nal_nbk_fundamental_circuit_for_NBK(cktnetlist)$/;"	f
 nal_nbk_graph_info_of_super_node	nal_nbk_graph_info_of_super_node.m	/^function graph_of_super_node=  nal_nbk_graph_info_of_super_node(cktnetlist)$/;"	f
 nal_nbk_graph_of_A	nal_nbk_graph_of_A.m	/^function graph_of_A = nal_nbk_graph_of_A(cktnetlist)$/;"	f
+nal_nbk_hybrid_analysis_equation	nal_nbk_hybrid_analysis_equation.m	/^function [A, B, mcg_index] = nal_nbk_hybrid_analysis_equation(cktnetlist)$/;"	f
 nal_nbk_incedence_matrix_for_NAL	nal_nbk_incedence_matrix_for_NAL.m	/^function  incedence_matrix_for_NAL =  nal_nbk_incedence_matrix_for_NAL(cktnetlist)$/;"	f
 nal_nbk_loop_matrix_for_NBK	nal_nbk_loop_matrix_for_NBK.m	/^function loop_matrix_for_NBK = nal_nbk_loop_matrix_for_NBK(cktnetlist)$/;"	f
-nal_nbk_loop_matrix_for_NBK	nal_nbk_test_02.m	/^function loop_matrix_for_NBK = nal_nbk_loop_matrix_for_NBK(cktnetlist)$/;"	f
-nal_nbk_loop_matrix_for_NBK	nal_nbk_working_cache_temp.m	/^function loop_matrix_for_NBK = nal_nbk_loop_matrix_for_NBK(cktnetlist)$/;"	f
 nal_nbk_matrix_for_NAL	nal_nbk_matrix_for_NAL.m	/^function [GA, EA, JA] = nal_nbk_matrix_for_NAL(cktnetlist)$/;"	f
 nal_nbk_matrix_for_NBK	nal_nbk_matrix_for_NBK.m	/^function [RB, EB, JB] = nal_nbk_matrix_for_NBK(cktnetlist)$/;"	f
-nal_nbk_mcg	nal_nbk_mcg.m	/^function x = nal_nbk_mcg(A,b)$/;"	f
+nal_nbk_mcg	nal_nbk_mcg.m	/^function x = nal_nbk_mcg(A,B,mcg_index)$/;"	f
 nal_nbk_modified_dfs_search_of_G	nal_nbk_modified_dfs_search_of_G.m	/^function [nodeVisited,edgeId_of_tree_of_G,dfs_nodes_of_A,dfs_nodes_of_B]= nal_nbk_modified_dfs_search_of_G(cktnetlist)$/;"	f
-nal_nbk_modified_edges_for_NAL_graph	nal_nbk_modified_edges_for_NAL_graph.m	/^function modified_edges_for_NAL =  nal_nbk_modified_edges_for_NAL_graph(cktnetlist)$/;"	f
-nal_nbk_modified_edges_for_NBK_graph	nal_nbk_modified_edges_for_NBK_graph.m	/^function modified_edges_for_NBK = nal_nbk_modified_edges_for_NBK_graph(cktnetlist);$/;"	f
+nal_nbk_modified_edges_for_NAL_graph	nal_nbk_modified_edges_for_NAL_graph.m	/^function all_modified_edges_for_NAL =  nal_nbk_modified_edges_for_NAL_graph(cktnetlist)$/;"	f
+nal_nbk_modified_edges_for_NAL_graph	nal_nbk_test_03.m	/^function all_modified_edges_for_NAL =  nal_nbk_modified_edges_for_NAL_graph(cktnetlist)$/;"	f
+nal_nbk_modified_edges_for_NAL_graph	nal_nbk_working_cache_temp.m	/^function all_modified_edges_for_NAL =  nal_nbk_modified_edges_for_NAL_graph(cktnetlist)$/;"	f
 nal_nbk_nodeInfo	nal_nbk_nodeInfo.m	/^function nodeInfo = nal_nbk_nodeInfo(circuitdata)$/;"	f
 nal_nbk_nodeInfo_forest_of_G	nal_nbk_nodeInfo_forest_of_G.m	/^function [edges,g1_of_forest,g1] = nal_nbk_nodeInfo_forest_of_G(cktnetlist);$/;"	f
 nal_nbk_nodeInfo_of_tree_of_A	nal_nbk_nodeInfo_of_tree_of_A.m	/^function g1_of_tree_of_A = nal_nbk_nodeInfo_of_tree_of_A(cktnetlist)$/;"	f
@@ -62,9 +62,9 @@ nal_nbk_start_node_of_G	nal_nbk_dfs_search_of_G_dot_B.m	/^function  nal_nbk_star
 nal_nbk_start_node_of_G_dot_A	nal_nbk_dfs_search_of_G_dot_A.m	/^function  nal_nbk_start_node_of_G_dot_A(cktnetlist)$/;"	f
 nal_nbk_super_node_of_forest_of_G	nal_nbk_super_node_of_forest_of_G.m	/^function super_node =  nal_nbk_super_node_of_forest_of_G(cktnetlist)$/;"	f
 nal_nbk_test_02	my_test_01.m	/^function my_variable =  nal_nbk_test_02(cktnetlist)$/;"	f
-nal_nbk_test_03	nal_nbk_test_03.m	/^function my_variable =  nal_nbk_test_03(cktnetlist)$/;"	f
+nal_nbk_test_02	nal_nbk_test_02.m	/^function all_modified_edges_for_NAL =  nal_nbk_test_02(cktnetlist)$/;"	f
 nal_nbk_test_cache	nal_nbk_test_cache.m	/^function my_variable =  nal_nbk_test_cache(cktnetlist)$/;"	f
-nal_nbk_tree_for_hybrid_analysis	nal_nbk_tree_for_hybrid_analysis.m	/^function edgeId_of_tree_of_G = nal_nbk_tree_for_hybrid_analysis(cktnetlist)$/;"	f
+nal_nbk_tree_for_hybrid_analysis	nal_nbk_tree_for_hybrid_analysis.m	/^function [edgeId_of_tree_of_G, super_node_edgeIds]  = nal_nbk_tree_for_hybrid_analysis(cktnetlist)$/;"	f
 nal_nbk_tree_partition_for_hybrid_analysis	nal_nbk_tree_partition_for_hybrid_analysis.m	/^function [hybridTreeEdgeId_of_A, hybridTreeEdgeId_of_B] = nal_nbk_tree_partition_for_hybrid_analysis(cktnetlist)$/;"	f
 recursive_call_to_remove_coloops	nal_nbk_K_branch_hybrid_analysis.m	/^function recursive_call_to_remove_coloops()$/;"	f
 recursive_function_to_remove_coloop	nal_nbk_K_branch_hybrid_analysis_nondisconnected.m	/^function recursive_function_to_remove_coloop (g1_of_tree)$/;"	f

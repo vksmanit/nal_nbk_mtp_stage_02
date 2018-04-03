@@ -1,6 +1,6 @@
 function cktnetlist = nal_nbk_FPGA_ckt_01()
 % --------------------------------------------------------------------------------
-% Syntax :- cktnetlist = nal_nbk_FPGA_ckt_01()
+% Syntax : cktnetlist = nal_nbk_FPGA_ckt_01()
 %
 % This will result an example ckt which we will use to illustrate the FPGA NALNBK 
 % solution method for solving a circuit in real time.

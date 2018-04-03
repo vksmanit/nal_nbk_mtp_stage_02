@@ -1,14 +1,11 @@
 function edgeId_of_tree_of_G = nal_nbk_dfs_search_of_supernode_of_G(cktnetlist)
 % --------------------------------------------------------------------------
-% 
-% Syntax : nal_nbk_dfs_search_of_supernode_of_G(cktnetlist)
+% Syntax : edgeId_of_tree_of_G = nal_nbk_dfs_search_of_supernode_of_G(cktnetlist)
 %
 % This function will perform the dfs serach on the graph of super node 
 % return by the function nal_nbk_graph_info_of_super_node(cktnetlist)
 %
 % This function is also modified to return the edgeId of tree of graph.
-%
-%
 % --------------------------------------------------------------------------
 
 % ------------------------- written on : Oct 10, 2017 ----------------------

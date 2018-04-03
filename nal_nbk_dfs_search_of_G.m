@@ -1,6 +1,9 @@
 function [nodeVisited,edgeId_of_tree_of_G,dfs_nodes_of_A,dfs_nodes_of_B]=  nal_nbk_dfs_search_of_G(cktnetlist)
 % --------------------------------------------------------------------------------
 % Syntax :  [nodeVisited,edgeId_of_tree_of_G,dfs_nodes_of_A,dfs_nodes_of_B]= nal_nbk_dfs_search_of_G(cktnetlist)
+%
+% This function is not returning the correct edgeIds for the dfs search of Graph G.
+% For correct edgeId <<< type : help nal_nbk_dfs_search_of_supernode_of_G >>>
 % 
 % This function will return 'node_visited' vector representing visited nodes 
 % of Graph G.

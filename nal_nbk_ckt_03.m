@@ -10,6 +10,7 @@ function cktnetlist = nal_nbk_ckt_01()
 % --------------------------------------------------------------------------------
 
 % ------------------------- written : Sep 07, 2017 -------------------------------
+% image of ckt diagram in folder ~/Desktop/MTP2/drawing_for_stage_02
  
     clear cktnetlist;
     cktnetlist.cktname = 'nal_nbk_ckt_03';
@@ -61,7 +62,9 @@ function cktnetlist = nal_nbk_ckt_01()
  	cktnetlist = add_element(cktnetlist, rM, 'R26', {'14','15'}, {{'R', 1e5}});
  	cktnetlist = add_element(cktnetlist, rM, 'R27', {'15','17'}, {{'R', 1e5}});
  	cktnetlist = add_element(cktnetlist, rM, 'R28', {'16','17'}, {{'R', 1e5}});
-    cktnetlist = add_element(cktnetlist, iM, 'I29', {'18', '12'}, {},...
+    %cktnetlist = add_element(cktnetlist, iM, 'I29', {'12','18'}, {},...
+  %  {{'DC',1e-3}});
+    cktnetlist = add_element(cktnetlist, iM, 'I29', {'14','16'}, {},...
     {{'DC',1e-3}});
  	cktnetlist = add_element(cktnetlist, rM, 'R30', {'12','14'}, {{'R', 1e5}});
  	cktnetlist = add_element(cktnetlist, rM, 'R31', {'13','15'}, {{'R', 1e5}});

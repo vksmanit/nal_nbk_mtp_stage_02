@@ -12,7 +12,7 @@ function loop_matrix_for_NBK = nal_nbk_loop_matrix_for_NBK(cktnetlist)
     % how to put K branch as the initial column 
     rows =  length(fundamental_circuit_for_NBK);
     cols =  length(edgeId_for_NBK);
-    loop_matrix = zeros (rows, cols);
+    loop_matrix_for_NBK = sparse (zeros (rows, cols));
     [g1_of_NBK, edges_for_NBK] = nal_nbk_nodeInfo_with_edge_identity_of_NBK(cktnetlist);
     N = length(cktnetlist.nodenames) + 1; 
 
@@ -31,17 +31,13 @@ function loop_matrix_for_NBK = nal_nbk_loop_matrix_for_NBK(cktnetlist)
            end
 
            if k == 1
-               loop_matrix(i,fundamental_circuit_for_NBK{i}(my_loop_matrix_01-k+1)) = 1;
+               loop_matrix_for_NBK(i,fundamental_circuit_for_NBK{i}(my_loop_matrix_01-k+1)) = 1;
            elseif otherNode ~= currentNode 
-               loop_matrix(i,fundamental_circuit_for_NBK{i}(my_loop_matrix_01-k+1)) = 1;
+               loop_matrix_for_NBK(i,fundamental_circuit_for_NBK{i}(my_loop_matrix_01-k+1)) = 1;
            elseif otherNode == currentNode  
-               loop_matrix(i,fundamental_circuit_for_NBK{i}(my_loop_matrix_01-k+1)) = -1;
+               loop_matrix_for_NBK(i,fundamental_circuit_for_NBK{i}(my_loop_matrix_01-k+1)) = -1;
            end
            currentNode = otherNode;
        end
-   end
-   loop_matrix_for_NBK = [];% zeros(rows,length(edgeId_for_NBK));
-   for edgeId = edgeId_for_NBK
-       loop_matrix_for_NBK = [loop_matrix_for_NBK, loop_matrix(:,edgeId)];
    end
 end
