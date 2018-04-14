@@ -96,5 +96,3 @@ function nal_nbk_dfs_search(nodeId)
         nal_nbk_dfs_search (otherNode);
     end
 end
-
-

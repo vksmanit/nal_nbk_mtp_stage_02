@@ -90,11 +90,11 @@ function nal_nbk_dfs_search(nodeId)
         end
         %% this if__else__end is written for the print_ohterNode
         %% if node is gnd instead of printing it last node it prints node 0
-        if otherNode == length(nodeVisited)
-            print_otherNode = 0;
-        else
-            print_otherNode = otherNode;
-        end
+%       if otherNode == length(nodeVisited)
+%           print_otherNode = 0;
+%       else
+%           print_otherNode = otherNode;
+%       end
 
         dfs_nodes_of_A = [dfs_nodes_of_A,otherNode];
         edgeId_of_tree_of_A = [edgeId_of_tree_of_A, edgeId];

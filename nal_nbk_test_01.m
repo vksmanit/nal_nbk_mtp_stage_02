@@ -1,6 +1,6 @@
-function fundamentalCircuitEdgeIds =  nal_nbk_fundamental_circuit_for_NBK(cktnetlist)
+function fundamentalCircuitEdgeIds =  nal_nbk_test_01(cktnetlist)
 % --------------------------------------------------------------------------------
-% Syntax : fundamentalCircuitEdgeIds = nal_nbk_fundamental_circuit_for_NBK(cktnetlist)
+% Syntax : fundamentalCircuitEdgeIds = nal_nbk_test_01(cktnetlist)
 %
 % This function will return the cell object fundamentalCircuitEdgeIds which is the 
 % EdgeIds of fundamental cirucuit. 
@@ -13,6 +13,7 @@ function fundamentalCircuitEdgeIds =  nal_nbk_fundamental_circuit_for_NBK(cktnet
     global edges_for_NBK;
     global node_visited;
     global MyCktIds;
+    global MyOutput;
 
     [tree, link] = nal_nbk_tree_and_link_branch_for_NBK(cktnetlist);
     N = length(cktnetlist.nodenames) + 1;
@@ -35,8 +36,7 @@ function fundamentalCircuitEdgeIds =  nal_nbk_fundamental_circuit_for_NBK(cktnet
         end
         MyCktIds = [];
         dfs_to_get_fundamental_circuit(node1,node2);%, MyCktIds);
-        %fundamentalCircuitEdgeIds{i} = [link(i),MyCktIds] ;
-        fundamentalCircuitEdgeIds{i} = [MyCktIds,link(i)] ;
+        fundamentalCircuitEdgeIds{i} = [MyOutput, link(i)] ;
     end
 end
 
@@ -45,6 +45,7 @@ function  dfs_to_get_fundamental_circuit(start_node,end_node)
     global node_visited;
     global g1_of_tree_of_NBK;
     global MyCktIds ;
+    global MyOutput;
 
     node_visited(start_node) = 1;
     adjEdgeIdsOfCurrentNode = g1_of_tree_of_NBK{start_node};
@@ -66,6 +67,7 @@ function  dfs_to_get_fundamental_circuit(start_node,end_node)
         if (node_visited(otherNode) == 0)
             MyCktIds = [MyCktIds, edgeId];
             if (otherNode == end_node)
+                MyOutput = MyCktIds;
                 return 
             end
             dfs_to_get_fundamental_circuit(otherNode, end_node);

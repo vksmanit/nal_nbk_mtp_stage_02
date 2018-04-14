@@ -4,7 +4,6 @@ function L_branch = nal_nbk_L_branch_hybrid_analysis(cktnetlist)
 %
 % This function will return the L-branches which belongs to the B-part. By shorting
 % these branch we get A and B-L will be as seperators.
-%
 % --------------------------------------------------------------------------------
 
 % --------------------------- written on : Oct 11, 2017 --------------------------  

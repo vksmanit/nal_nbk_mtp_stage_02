@@ -10,9 +10,9 @@ function [RB, EB, JB] = nal_nbk_matrix_for_NBK(cktnetlist)
      dimension_of_matrix = max(find(not(nal_nbk_A_and_B_part))) - min(find(not(nal_nbk_A_and_B_part))) + 1;
       % this is working fine for only this type of model but if we are having disconnected model then it won't work 
     %dimension_of_matrix = max(find(nal_nbk_A_and_B_part));
-     RB = zeros(dimension_of_matrix);
-     EB  = zeros(dimension_of_matrix,1);
-     JB  = zeros(dimension_of_matrix,1);
+     RB  = sparse(zeros(dimension_of_matrix));
+     EB  = sparse(zeros(dimension_of_matrix,1));
+     JB  = sparse(zeros(dimension_of_matrix,1));
      max_iter = length(RB); 
      index_for_matrix = 1;
      for i = min(find(not(nal_nbk_A_and_B_part))) : max(find(not(nal_nbk_A_and_B_part)))
