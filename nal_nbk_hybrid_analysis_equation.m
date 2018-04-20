@@ -24,12 +24,20 @@ function [A, B, mcg_index] = nal_nbk_hybrid_analysis_equation(cktnetlist)
     BK = sparse([]);
     ArK =sparse([]);
     BL = sparse([]);
+    ArA_right_side = sparse([]);
+    Bb_right_side = sparse([]);
     index = 1;
+   % index_for_ArA = 1;
     for item = partition 
-        if item == 1 
+        if (item == 1 & not(strcmp(cktnetlist.elements{index}.name(1),'I'))) 
             ArA = [ArA, incedence_matrix_for_NAL(:,index)];
-        else
+        elseif(item == 0 & not(strcmp(cktnetlist.elements{index}.name(1),'V')))
             Bb = [Bb, loop_matrix_for_NBK(:,index)];
+        end
+        if item == 1
+            ArA_right_side = [ArA_right_side, incedence_matrix_for_NAL(:,index)];
+        elseif item == 0 
+            Bb_right_side = [Bb_right_side, loop_matrix_for_NBK(:,index)];
         end
         index = index + 1;
     end
@@ -47,8 +55,10 @@ function [A, B, mcg_index] = nal_nbk_hybrid_analysis_equation(cktnetlist)
     A_right_top = ArL * BL';
     A_right_bottom = Bb * RB * Bb' ;
     A = [ A_left_top, A_right_top ; A_left_bottom, A_right_bottom];
-    B_top = ArA * GA * EA - ArA * JA;
-    B_bottom = Bb * RB * JB - Bb * EB;
+%    B_top = ArA * GA * EA - ArA * JA;
+    B_top = - ArA_right_side * JA;
+%    B_bottom = Bb * RB * JB - Bb * EB;
+    B_bottom = - Bb_right_side * EB;
     B = [B_top;B_bottom];
 
     mcg_index = size(A_left_bottom,2);
